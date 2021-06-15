@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" contente="IE=edge">
+        <meta name="viewport" content="width=device-width. initial-scale=1.0">
+        <title>Calcule seu IMC</title>
+        <script src="imc.js"></script>
+        
+    </head>
+
+    <body>
+        <h1>Calcule seu IMC</h1>
+        
+            <input type="number" class="peso" name="peso" placeholder="Seu peso"/>
+            <input type="number" class="altura" name="altura" placeholder="Sua altura"/>
+            <input type="button" class="btn" value="Calc."/><br/><br/>
+            <span class="resultado">Resultado</span>
+        
+    </body>
+
+    <script type="text/javascript">
+
+        btn = document.querySelector(".btn");
+        btn.addEventListener("click", ()=>{
+            peso = parseFloat(document.querySelector(".peso").value);
+            altura = parseFloat(document.querySelector(".altura").value);
+            resultado = (peso / (altura *altura)).toFixed(2);
+
+            if( resultado < 18.5)
+                    resultado += " Abaixo do peso";
+                if(resultado > 18.5 && resultado < 24.9)
+                    resultado += " Peso normal";
+                if(resultado > 25 && resultado < 29.9)
+                    resultado += " Sobrepeso";
+                if(resultado > 30 && resultado < 34.9)
+                    resultado += " Obesidade grau 1";
+                if(resultado > 35 && resultado < 39.9)
+                    resultado += " Obesidade grau 2";
+                if(resultado > 40)
+                    resultado += " Obesidade grau 3";
+                resultado = "<br/>IMC = " + resultado;   
+                document.querySelector(".resultado").innerHTML = resultado;
+        });
+
+    </script>
+
+</html>
